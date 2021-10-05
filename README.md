@@ -15,7 +15,7 @@ In the end you'll have a working iOS app that can be used to record recipes and 
 This repo contains 6 folders:
 
 - `start`
-- `step1`,`2`, `3` and `4`
+- `step1`,`2`, `3`, `4` and `5`
 - `final`
 
 `start` contains the beginning project, it would be a good idea to download this folder to get started. In each step we'll build on this starter project until we reach the project in `final`.
