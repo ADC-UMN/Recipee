@@ -30,11 +30,11 @@ struct RecipeCell: View {
             }
             
             VStack(alignment: .leading) {
-                Text(recipe.name ?? "NO NAME FOUND")
+                Text(recipe.name)
                     .font(.title3)
                     .fontWeight(.semibold)
                     .padding(.top, 4)
-                Text("\(recipe.ingredients?.count ?? 0) Ingredients")
+                Text("\(recipe.ingredients.count) Ingredients")
                     .font(.caption)
                 Spacer()
             }
@@ -51,6 +51,5 @@ struct RecipeCell_Previews: PreviewProvider {
     static var previews: some View {
         RecipeCell(recipe: PersistenceController.testRecipe)
             .previewLayout(.fixed(width: 300, height: 100))
-            .environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
     }
 }

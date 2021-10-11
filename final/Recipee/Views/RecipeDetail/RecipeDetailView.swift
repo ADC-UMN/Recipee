@@ -6,12 +6,12 @@
 //
 
 import SwiftUI
-import CoreData
 
-struct RecipeDetail: View {
-    var recipe: Recipe
+struct RecipeDetailView: View {
+    @State var recipe: Recipe
     
     @Environment(\.presentationMode) var presentationMode
+    @State var isShowingEditView: Bool = false
     
     var body: some View {
         ScrollView {
@@ -29,12 +29,12 @@ struct RecipeDetail: View {
                 
                 VStack(alignment: .leading, spacing: 8) {
                     HStack {
-                        Text(recipe.name ?? "NO NAME FOUND")
+                        Text(recipe.name)
                             .font(.largeTitle)
                             .bold()
                         Spacer()
                         Button {
-                            print("Edit")
+                            isShowingEditView.toggle()
                         } label: {
                             Image(systemName: "pencil")
                                 .foregroundColor(Color(UIColor.label))
@@ -43,7 +43,6 @@ struct RecipeDetail: View {
                                 .clipShape(Circle())
                         }
                         Button {
-                            print("Close")
                             presentationMode.wrappedValue.dismiss()
                         } label: {
                             Image(systemName: "multiply")
@@ -54,20 +53,15 @@ struct RecipeDetail: View {
                         }
                     }
                     Divider()
-                    Text(recipe.notes ?? "No Notes")
-                        .font((recipe.notes == nil || recipe.notes?.isEmpty ?? true) ? .footnote.italic() : .footnote)
+                    Text(recipe.notes)
+                        .font((recipe.notes.isEmpty) ? .footnote.italic() : .footnote)
                     Divider()
-                    ForEach(recipe.ingredients!.array as! [Ingredient]) { ingredient in
+                    ForEach(recipe.ingredients) { ingredient in
                         HStack {
-                            Text(ingredient.name ?? "No Name Found")
+                            Text(ingredient.name)
                             Spacer()
-                            if ingredient.amount_measure != nil {
-                                Text("\(ingredient.amount) \(ingredient.amount_measure!)")
-                                    .font(.caption)
-                            } else {
-                                Text("x\(ingredient.amount)")
-                                    .font(.caption)
-                            }
+                            Text("\(ingredient.amount) \(ingredient.amountType.rawValue)")
+                                .font(.caption)
                         }.padding(.vertical, 4)
                         Divider()
                             .padding(.leading)
@@ -76,12 +70,21 @@ struct RecipeDetail: View {
                 .padding(.horizontal)
             }
             .navigationBarHidden(true)
-        }.ignoresSafeArea()
+            .ignoresSafeArea()
+            .sheet(isPresented: $isShowingEditView) {
+                if PersistenceController.shared.getSavedRecipe(for: recipe.id) != nil {
+                    recipe = PersistenceController.shared.getSavedRecipe(for: recipe.id)!
+                }
+                recipe.objectWillChange.send()
+            } content: {
+                AddRecipeView(recipe)
+            }
+        }
     }
 }
 
 struct RecipeDetail_Previews: PreviewProvider {
     static var previews: some View {
-        RecipeDetail(recipe: PersistenceController.testRecipe)
+        RecipeDetailView(recipe: PersistenceController.testRecipe)
     }
 }

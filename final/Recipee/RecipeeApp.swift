@@ -9,12 +9,27 @@ import SwiftUI
 
 @main
 struct RecipeeApp: App {
-    let persistenceController = PersistenceController.shared
-
+    @Environment(\.scenePhase) var scenePhase
+    
+    init() {
+        PersistenceController.shared.fetchAllSavedRecipes()
+    }
+    
     var body: some Scene {
         WindowGroup {
             ContentView()
-                .environment(\.managedObjectContext, persistenceController.container.viewContext)
+        }
+        .onChange(of: scenePhase) { newScenePhase in
+            switch newScenePhase {
+            case .active:
+                PersistenceController.shared.fetchAllSavedRecipes()
+            case .inactive:
+                PersistenceController.shared.save()
+            case .background:
+                PersistenceController.shared.save()
+            @unknown default:
+                break
+            }
         }
     }
 }

@@ -9,13 +9,7 @@ import SwiftUI
 import CoreData
 
 struct ContentView: View {
-    @Environment(\.managedObjectContext) private var viewContext
-
-    @FetchRequest(
-        sortDescriptors: [NSSortDescriptor(keyPath: \Recipe.createdAt, ascending: true)],
-        animation: .default)
-    private var recipes: FetchedResults<Recipe>
-    
+    @ObservedObject var persistenceController: PersistenceController = PersistenceController.shared
     @State var showAddView: Bool = false
 
     var body: some View {
@@ -23,14 +17,24 @@ struct ContentView: View {
             ScrollView {
                 Spacer()
                 LazyVStack(spacing: 10) {
-                    ForEach(recipes) { recipe in
+                    ForEach(persistenceController.recipes) { recipe in
+                        // ===============
+                        // Recipe Cells
+                        // ===============
                         NavigationLink {
-                            RecipeDetail(recipe: recipe)
+                            RecipeDetailView(recipe: recipe)
+                                .ignoresSafeArea(.all, edges: .top)
                         } label: {
                             RecipeCell(recipe: recipe)
                                 .foregroundColor(Color(UIColor.label))
                         }
-
+                        .contextMenu {
+                            Button {
+                                persistenceController.deleteRecipe(recipe)
+                            } label: {
+                                Label("Delete \(recipe.name)", systemImage: "trash")
+                            }
+                        }
                     }
                 }
                 Spacer(minLength: 48)
@@ -39,19 +43,22 @@ struct ContentView: View {
             .padding(.horizontal)
             .navigationTitle("Recipee")
             .toolbar {
+                // ===============
+                // Top Buttons
+                // ===============
                 ToolbarItemGroup(placement: .navigationBarTrailing) {
                     Button {
                         showAddView.toggle()
                     } label: {
                         Label("Add", systemImage: "plus")
                     }
-
                 }
             }
             .sheet(isPresented: $showAddView) {
-                print("Dismissed!")
+                // Update the view for any new data after the add view is dismissed
+                persistenceController.objectWillChange.send()
             } content: {
-                AddRecipe()
+                AddRecipeView()
             }
         }
     }
@@ -59,6 +66,6 @@ struct ContentView: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView().environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
+        ContentView()
     }
 }
