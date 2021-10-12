@@ -24,20 +24,20 @@ This repo contains 6 folders:
 - `step1`,`2`, `3`, `4` and `5`
 - `final`
 
-`start` contains the beginning project, [you can download the starter project here](https://github.com/ADC-UMN/Recipee/raw/main/start/Recipee-start.zip) or follow the instructions in [the start folder](https://github.com/ADC-UMN/Recipee/start). **In each step we'll build on this starter project until we reach the project in `final`.**
+`start` contains the beginning project, [you can download the starter project here](https://github.com/ADC-UMN/Recipee/raw/main/start/Recipee-start.zip) or follow the instructions in [the start folder](https://github.com/ADC-UMN/Recipee/tree/main/start). **In each step we'll build on this starter project until we reach the project in `final`.**
 
 Each step also contains the code that you should end up with after each step, so if you're lost you can download those folder's code and see what's going wrong.
 
 ### Steps
 
-- [Step 1](https://github.com/ADC-UMN/Recipee/step1): Intro to Swift, Xcode overview, overview of iOS development
-- [Step 2](https://github.com/ADC-UMN/Recipee/step2): Model
+- [Step 1](https://github.com/ADC-UMN/Recipee/tree/main/step1): Intro to Swift, Xcode overview, overview of iOS development
+- [Step 2](https://github.com/ADC-UMN/Recipee/tree/main/step2): Model
   - Create a data model to store recipes and ingredients
   - Create a Persistence layer object to handle model operations
   - Add a way to save and retrieve images for recipes.
-- [Step 3](https://github.com/ADC-UMN/Recipee/step3): Home View
+- [Step 3](https://github.com/ADC-UMN/Recipee/tree/main/step3): Home View
   - Make a home view with cells that display a recipe's name, ingredient count, and a blurred image.
-- [Step 4](https://github.com/ADC-UMN/Recipee/step4): Recipe Detail
+- [Step 4](https://github.com/ADC-UMN/Recipee/tree/main/step4): Recipe Detail
   - Add a detail view when you tap on the home cells that displays all the ingredients, the recipe name, and the recipe image.
-- [Step 5](https://github.com/ADC-UMN/Recipee/step5): Add a Recipe
+- [Step 5](https://github.com/ADC-UMN/Recipee/tree/main/step5): Add a Recipe
   - Create a new view for adding recipe's and their ingredients, as well as edit recipes.
