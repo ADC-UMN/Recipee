@@ -12,7 +12,7 @@ In the end you'll have a working iOS app that can be used to record recipes and 
 
 ### Skills learned:
 
-- Build a basic UI in SwiftUI
+- Build a simple, functional, UI using SwiftUI
 - Basics of the Swift Programming Language
 - Store and retreive data using the native File System and data encoders
 
