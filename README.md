@@ -24,7 +24,7 @@ This repo contains 6 folders:
 - `step1`,`2`, `3`, `4` and `5`
 - `final`
 
-`start` contains the beginning project, it would be a good idea to download this folder to get started. In each step we'll build on this starter project until we reach the project in `final`.
+`start` contains the beginning project, [you can download the starter project here](https://github.com/ADC-UMN/Recipee/raw/main/start/Recipee-start.zip) or follow the instructions in [the start folder](https://github.com/ADC-UMN/Recipee/start). **In each step we'll build on this starter project until we reach the project in `final`.**
 
 Each step also contains the code that you should end up with after each step, so if you're lost you can download those folder's code and see what's going wrong.
 
