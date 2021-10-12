@@ -30,14 +30,14 @@ Each step also contains the code that you should end up with after each step, so
 
 ### Steps
 
-- Step 1: Intro to Swift, Xcode overview, overview of iOS development
-- Step 2: Model
+- [Step 1](https://github.com/ADC-UMN/Recipee/step1): Intro to Swift, Xcode overview, overview of iOS development
+- [Step 2](https://github.com/ADC-UMN/Recipee/step2): Model
   - Create a data model to store recipes and ingredients
   - Create a Persistence layer object to handle model operations
   - Add a way to save and retrieve images for recipes.
-- Step 3: Home View
+- [Step 3](https://github.com/ADC-UMN/Recipee/step3): Home View
   - Make a home view with cells that display a recipe's name, ingredient count, and a blurred image.
-- Step 4: Recipe Detail
+- [Step 4](https://github.com/ADC-UMN/Recipee/step4): Recipe Detail
   - Add a detail view when you tap on the home cells that displays all the ingredients, the recipe name, and the recipe image.
-- Step 5: Add a Recipe
+- [Step 5](https://github.com/ADC-UMN/Recipee/step5): Add a Recipe
   - Create a new view for adding recipe's and their ingredients, as well as edit recipes.
