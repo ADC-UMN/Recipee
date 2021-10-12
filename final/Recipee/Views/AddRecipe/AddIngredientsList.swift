@@ -26,7 +26,7 @@ struct AddIngredientsList: View {
                     TextField("Amount", value: ingredient.amount, formatter: NumberFormatter())
                         .multilineTextAlignment(.trailing)
                         .keyboardType(.numberPad)
-                    Picker(ingredient.amountType, selection: ingredient.amountType) {
+                    Picker(ingredient.amountType.wrappedValue.rawValue, selection: ingredient.amountType) {
                         ForEach(AmountType.allCases, id: \.self.rawValue) { amountType in
                             Text(amountType.rawValue)
                         }

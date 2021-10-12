@@ -1,14 +1,20 @@
 # Recipee
 
- This project demonstrates building a Recipe app named Recipee. You'll learn the basics of iOS development using SwiftUI, Core Data, and Swift.
+ This project demonstrates building a Recipe app named Recipee. You'll learn the basics of iOS development using SwiftUI, Data Modeling, and Swift.
 
 In the end you'll have a working iOS app that can be used to record recipes and their ingredients in a list with images.
+
+| Home View                         | Recipe Detail                       | Add/Edit a Recipe                 |
+| --------------------------------- | ----------------------------------- | --------------------------------- |
+| ![detail](./Screenshots/home.png) | ![detail](./Screenshots/detail.png) | ![detail](./Screenshots/edit.png) |
+
+
 
 ### Skills learned:
 
 - Build a basic UI in SwiftUI
 - Basics of the Swift Programming Language
-- Store and retreive data using Core Data
+- Store and retreive data using the native File System and data encoders
 
 ### File Structure
 
@@ -26,7 +32,8 @@ Each step also contains the code that you should end up with after each step, so
 
 - Step 1: Intro to Swift, Xcode overview, overview of iOS development
 - Step 2: Model
-  - Create a data model to store recipes and ingredients, and insert the core data persistence layer into SwiftUI
+  - Create a data model to store recipes and ingredients
+  - Create a Persistence layer object to handle model operations
   - Add a way to save and retrieve images for recipes.
 - Step 3: Home View
   - Make a home view with cells that display a recipe's name, ingredient count, and a blurred image.
