@@ -4,9 +4,9 @@
 
 In the end you'll have a working iOS app that can be used to record recipes and their ingredients in a list with images.
 
-| Home View                         | Recipe Detail                       | Add/Edit a Recipe                 |
-| --------------------------------- | ----------------------------------- | --------------------------------- |
-| ![detail](./Screenshots/home.png) | ![detail](./Screenshots/detail.png) | ![detail](./Screenshots/edit.png) |
+| Home View                       | Recipe Detail                       | Edit a Recipe                   | Add a Recipe                     | Dark Mode                            |
+| ------------------------------- | ----------------------------------- | ------------------------------- | -------------------------------- | ------------------------------------ |
+| ![home](./Screenshots/home.png) | ![detail](./Screenshots/detail.png) | ![edit](./Screenshots/edit.png) | ![detail](./Screenshots/add.png) | ![dark mode](./Screenshots/dark.png) |
 
 
 
