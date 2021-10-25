@@ -150,7 +150,7 @@ Since some of the functions we're calling (`Data(contentsOf:) and decoder.decode
 >
 > ```swift
 > init() { // (Line 26 in PersistenceController.swift)
-> 	fetchAllSavedRecipes()
+>     fetchAllSavedRecipes()
 > }
 > ```
 
@@ -202,14 +202,14 @@ Finally, lets fill in `getSavedRecipe`. This function will return a recipe ident
 
 ```swift
 func getSavedRecipe(for id: String) -> Recipe? {
-  	// Find the recipe in the `recipes` array.
+      // Find the recipe in the `recipes` array.
     if let index = recipes.firstIndex(where: { recipe in
         recipe.id == id
     }) {
         // We've found the recipe, return it.
         return recipes[index]
     } else {
-		// This recipe doesn't exist, return nil
+        // This recipe doesn't exist, return nil
         return nil
     }
 }

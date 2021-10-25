@@ -31,7 +31,7 @@ Declaring a function in swift looks like
 
 ```swift
 func editMessage(newMessage: String) {
-	message = newMessage
+    message = newMessage
 }
 ```
 
@@ -54,11 +54,11 @@ Swift supports basic `if, else if, else` statements like the below example.
 let isTrue = false
 
 if isTrue {
-	print("Yay!")
+    print("Yay!")
 } else if isTrue == false && isTrue == true {
-	print("We probably shouldn't be here...")
+    print("We probably shouldn't be here...")
 } else {
-	print("Yay 2!")
+    print("Yay 2!")
 }
 ```
 
@@ -68,17 +68,17 @@ if isTrue {
 var testScores: [Int] = [0, 1, 50, 75, 76, 99, 100]
 
 while testScores.count > 0 {
-	testScores = []
+    testScores = []
 }
 
 // for _ in _ syntax
 for score in testScores {
-	print(score)
+    print(score)
 }
 
 // for i in range syntax
 for i in 0..<testScores.count {
-	print(scores[i])
+    print(scores[i])
 }
 ```
 
@@ -98,11 +98,11 @@ This class doesn't do much, but we can add variables and methods to it like so.
 
 ```swift
 class Messenger {
-	var currentMessage: String = "Hello World"
+    var currentMessage: String = "Hello World"
   
-	func sendMessage() {
-		currentMessage = "sent!"
-	}
+    func sendMessage() {
+        currentMessage = "sent!"
+    }
 }
 ```
 
@@ -110,25 +110,25 @@ Classes will sometimes need to implement an `init` method. This method will give
 
 ```swift
 class Messenger {
-	init() {
-		// `currentMessage` has only a type, no value. So we need to give it a value in the
-		// `init()` function.
-		currentMessage = "Hello World"
+    init() {
+        // `currentMessage` has only a type, no value. So we need to give it a value in the
+        // `init()` function.
+        currentMessage = "Hello World"
     
-		// Set up the class when it is created
-		setupMessenger()
-	}
+        // Set up the class when it is created
+        setupMessenger()
+    }
   
-	// Declare a private function
-	private func setupMessenger() {
-		// ...
-	}
+    // Declare a private function
+    private func setupMessenger() {
+        // ...
+    }
   
-	var currentMessage: String
+    var currentMessage: String
   
-	func sendMessage() {
-		currentMessage = "sent!"
-	}
+    func sendMessage() {
+        currentMessage = "sent!"
+    }
 }
 ```
 
@@ -138,11 +138,11 @@ Some methods can 'throw' an error. For instance, when reading from a file multip
 
 ```swift
 do {
-	// Call a throwing function with the `try` keyword in front of it
-	try sendErrorMessage()
+    // Call a throwing function with the `try` keyword in front of it
+    try sendErrorMessage()
 } catch {
-	// Handle any errors
-	print(error)
+    // Handle any errors
+    print(error)
 }
 ```
 
@@ -205,10 +205,10 @@ Optionals can come in handy when we want to **check** if a value exists in a var
 
 ```swift
 if optionalString == nil {
-	print("Looks like the string doesn't exist :(")
+    print("Looks like the string doesn't exist :(")
 } else {
-	// Force unwrap is save because we checked if it was `nil` already
-	print(optionalString!)
+    // Force unwrap is save because we checked if it was `nil` already
+    print(optionalString!)
 }
 ```
 
