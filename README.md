@@ -21,8 +21,7 @@ In the end you'll have a working iOS app that can be used to record recipes and 
 This repo contains 6 folders:
 
 - `start`
-- `step1`,`2`, `3`, `4` and `5`
-- `final`
+- `step1`,`2`, `3`, and  `4`
 
 `start` contains the beginning project, [you can download the starter project here](https://github.com/ADC-UMN/Recipee/raw/main/start/Recipee-start.zip) or follow the instructions in [the start folder](https://github.com/ADC-UMN/Recipee/tree/main/start). **In each step we'll build on this starter project until we reach the project in `final`.**
 
@@ -31,13 +30,17 @@ Each step also contains the code that you should end up with after each step, so
 ### Steps
 
 - [Step 1](https://github.com/ADC-UMN/Recipee/tree/main/step1): Intro to Swift, Xcode overview, overview of iOS development
+
 - [Step 2](https://github.com/ADC-UMN/Recipee/tree/main/step2): Model
-  - Create a data model to store recipes and ingredients
-  - Create a Persistence layer object to handle model operations
-  - Add a way to save and retrieve images for recipes.
+  - Create a data model to store recipes to disk
+  - Learn to decode and encode Swift objects to JSON
+  
 - [Step 3](https://github.com/ADC-UMN/Recipee/tree/main/step3): Home View
   - Make a home view with cells that display a recipe's name, ingredient count, and a blurred image.
-- [Step 4](https://github.com/ADC-UMN/Recipee/tree/main/step4): Recipe Detail
+  
+- [Step 4](https://github.com/ADC-UMN/Recipee/tree/main/step4): Recipe Detail & Add a Recipe
+  
   - Add a detail view when you tap on the home cells that displays all the ingredients, the recipe name, and the recipe image.
-- [Step 5](https://github.com/ADC-UMN/Recipee/tree/main/step5): Add a Recipe
   - Create a new view for adding recipe's and their ingredients, as well as edit recipes.
+  
+  
