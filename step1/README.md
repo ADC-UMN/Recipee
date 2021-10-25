@@ -12,6 +12,8 @@ You can use it to program for all of Apple's platforms (iOS, iPadOS, MacOS, TvOS
 
 ### Basic Syntax
 
+**Variables**
+
 Like in any other programming language, swift allows you to create variables. You can create constants using `let`, which can't be modified and variables using `var` that can be modified. 
 
 Since Swift is a statically-typed language, we need to specify a type for each variable. However, for most variables the Swift compiler can take a good guess and add a type for us so it's not always necessary.
@@ -22,6 +24,8 @@ var message: String = "Hello World"
 // Declare a constant with an inferred type (String)
 let message2 = "Hello World"
 ```
+
+**Functions**
 
 Declaring a function in swift looks like
 
@@ -39,6 +43,46 @@ You can pass parameters to a function by adding the `name: Type` inside the pare
 > print(message)
 > print("This is the message: ", message)
 > ```
+
+**Control Flow**
+
+Swift supports basic `if, else if, else` statements like the below example. 
+
+> Note, parenthesis are not required in `if`, `while`, or `for` statements and are considered bad in Swift
+
+```swift
+let isTrue = false
+
+if isTrue {
+  print("Yay!")
+} else if isTrue == false && isTrue == true {
+  print("We probably shouldn't be here...")
+} else {
+  print("Yay 2!")
+}
+```
+
+`while` and `for` loops also work in swift, and `for` loops have some nice syntactic sugar that makes them look a lot like Python and Java for loops.
+
+```swift
+var testScores: [Int] = [0, 1, 50, 75, 76, 99, 100]
+
+while testScores.count > 0 {
+  testScores = []
+}
+
+// for _ in _ syntax
+for score in testScores {
+  print(score)
+}
+
+// for i in range syntax
+for i in 0..<testScores.count {
+  print(scores[i])
+}
+```
+
+> While you *can* use C-style for loops (`for let i, i < 3, i++ {`) in Swift, it won't work in future Swift releases and you'll get a warning from the compiler.
 
 #### Classes
 
@@ -110,7 +154,63 @@ In the `catch` block, there is a variable `error` that is implicitly declared an
 
 #### Optionals (⚠️ Important)
 
-The major difference between Swift and other programming languages is Swift's idea of Optionals. Optionals are variables that might have data in them, and might not. 
+The major difference between Swift and other programming languages is Swift's idea of Optionals. An optional represents two possibilities: Either there *is* a value, and you can unwrap the optional to access that value, or there *isn’t* a value at all.
 
+> Aside:
+>
+> This concept doesn't exist in C or C++. In Java, `null` variables simply cause a crash when you access them, same thing in Python.
 
+This example shows how optionals can come in handy. We'll try to convert an `Int` to a string. Since this is something that could fail, the `String` function will just return `nil` if it didn't work.
+
+```swift
+let intToConvert: Int = 420
+let string: String? = String(intToConvert)
+```
+
+Because the initializer might fail, it returns an *optional* `String`, rather than an `String`. An optional `String` is written as `String?`, not `String`. The question mark indicates that the value it contains is optional, meaning that it might contain *some* `String` value, or it might contain *no value at all*. (It can’t contain anything else, such as a `Bool` value or a `Int` value. It’s either an `String`, or it’s nothing at all.)
+
+You can clear a value in a variable by setting the variable to `nil`
+
+```swift
+var optionalString: String? = "Hello World"
+
+print(optionalString) // ==> "Hello World"
+
+optionalString = nil
+
+print(optionalString) // ==> nil
+```
+
+You can also declare a variable with no value to begin with like this
+
+```swift
+var optionalString: String? = nil
+
+print(optionalString) // ==> nil
+```
+
+We can *unwrap* an optional value in two ways. Either we provide a fallback value using `??` or we force unwrap the value using `!`
+
+> Note: If you can avoid it, use `!` as little as possible as your code will crash if you force-unwrap a value that doesn't exist
+
+```swift
+// Fallback unwrap
+let notOptionalString: String = optionalString ?? "Fallback Value"
+
+ // Force unwrap
+let notOptionalString2: String = optionalString!
+```
+
+Optionals can come in handy when we want to **check** if a value exists in a variable. We can use a simple `if` statement.
+
+```swift
+if optionalString == nil {
+  print("Looks like the string doesn't exist :(")
+} else {
+  // Force unwrap is save because we checked if it was `nil` already
+  print(optionalString!)
+}
+```
+
+## Xcode
 
