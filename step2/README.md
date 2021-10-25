@@ -114,6 +114,8 @@ let recipe: Recipe = try decoder.decode(Recipe.self, from: data)
 
 Now that we've seen how to save and load Swift objects to files, lets fill in the functions we'll need in `PersistenceController`.
 
+------
+
 First, `fetchAllSavedRecipes` should grab data from our save file, decode it into Recipes, and then put those recipes into the `recipes` array.
 
 ```swift
@@ -152,7 +154,7 @@ Since some of the functions we're calling (`Data(contentsOf:) and decoder.decode
 > }
 > ```
 
-
+------
 
 Now for the `save()` function. We'll encode the recipes array into a `Data` object and write that data to our save file.
 
@@ -173,7 +175,7 @@ func save() {
 }
 ```
 
-
+------
 
 We'll also want to delete recipes in our app, so lets fill in the `deleteRecipe` function.
 
@@ -194,7 +196,7 @@ func deleteRecipe(_ r: Recipe) {
 }
 ```
 
-
+------
 
 Finally, lets fill in `getSavedRecipe`. This function will return a recipe identified by the given ID if it exists.
 
