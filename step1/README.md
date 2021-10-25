@@ -10,7 +10,7 @@ According to Swift.org, *"Swift is a general-purpose programming language built 
 
 You can use it to program for all of Apple's platforms (iOS, iPadOS, MacOS, TvOS, WatchOS) as well as run web servers with frameworks like [Vapor](https://vapor.codes/). There's even some preliminary ports to Windows, but nothing very useful as of this writing
 
-### Basic Syntax
+## Basic Syntax
 
 **Variables**
 
@@ -54,11 +54,11 @@ Swift supports basic `if, else if, else` statements like the below example.
 let isTrue = false
 
 if isTrue {
-  print("Yay!")
+	print("Yay!")
 } else if isTrue == false && isTrue == true {
-  print("We probably shouldn't be here...")
+	print("We probably shouldn't be here...")
 } else {
-  print("Yay 2!")
+	print("Yay 2!")
 }
 ```
 
@@ -68,23 +68,23 @@ if isTrue {
 var testScores: [Int] = [0, 1, 50, 75, 76, 99, 100]
 
 while testScores.count > 0 {
-  testScores = []
+	testScores = []
 }
 
 // for _ in _ syntax
 for score in testScores {
-  print(score)
+	print(score)
 }
 
 // for i in range syntax
 for i in 0..<testScores.count {
-  print(scores[i])
+	print(scores[i])
 }
 ```
 
 > While you *can* use C-style for loops (`for let i, i < 3, i++ {`) in Swift, it won't work in future Swift releases and you'll get a warning from the compiler.
 
-#### Classes
+### Classes
 
 One of Swift's core features is it's ability to do Object-Oriented Programming easily. You can declare a working class with 3 lines of code.
 
@@ -98,11 +98,11 @@ This class doesn't do much, but we can add variables and methods to it like so.
 
 ```swift
 class Messenger {
-  var currentMessage: String = "Hello World"
+	var currentMessage: String = "Hello World"
   
-  func sendMessage() {
-    currentMessage = "sent!"
-  }
+	func sendMessage() {
+		currentMessage = "sent!"
+	}
 }
 ```
 
@@ -110,39 +110,39 @@ Classes will sometimes need to implement an `init` method. This method will give
 
 ```swift
 class Messenger {
-  init() {
-    // `currentMessage` has only a type, no value. So we need to give it a value in the
-    // `init()` function.
+	init() {
+		// `currentMessage` has only a type, no value. So we need to give it a value in the
+		// `init()` function.
 		currentMessage = "Hello World"
     
-    // Set up the class when it is created
-    setupMessenger()
-  }
+		// Set up the class when it is created
+		setupMessenger()
+	}
   
-  // Declare a private function
-  private func setupMessenger() {
-    // ...
-  }
+	// Declare a private function
+	private func setupMessenger() {
+		// ...
+	}
   
 	var currentMessage: String
   
-  func sendMessage() {
+	func sendMessage() {
 		currentMessage = "sent!"
-  }
+	}
 }
 ```
 
-#### Do Catch
+### Do-Catch
 
 Some methods can 'throw' an error. For instance, when reading from a file multiple errors might occur. The file might not exist, the file is corrupted, etc. These functions need to be called in a do-catch block like so.
 
 ```swift
 do {
-  // Call a throwing function with the `try` keyword in front of it
-  try sendErrorMessage()
+	// Call a throwing function with the `try` keyword in front of it
+	try sendErrorMessage()
 } catch {
-  // Handle any errors
-  print(error)
+	// Handle any errors
+	print(error)
 }
 ```
 
@@ -152,7 +152,7 @@ In the `catch` block, there is a variable `error` that is implicitly declared an
 
 **If you don't handle errors in this way, your code will crash when `sendErrorMessage` throws an error.**
 
-#### Optionals (⚠️ Important)
+### **Optionals (⚠️ Important)**
 
 The major difference between Swift and other programming languages is Swift's idea of Optionals. An optional represents two possibilities: Either there *is* a value, and you can unwrap the optional to access that value, or there *isn’t* a value at all.
 
@@ -205,10 +205,10 @@ Optionals can come in handy when we want to **check** if a value exists in a var
 
 ```swift
 if optionalString == nil {
-  print("Looks like the string doesn't exist :(")
+	print("Looks like the string doesn't exist :(")
 } else {
-  // Force unwrap is save because we checked if it was `nil` already
-  print(optionalString!)
+	// Force unwrap is save because we checked if it was `nil` already
+	print(optionalString!)
 }
 ```
 

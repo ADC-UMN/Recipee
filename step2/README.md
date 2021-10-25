@@ -120,23 +120,23 @@ First, `fetchAllSavedRecipes` should grab data from our save file, decode it int
 
 ```swift
 func fetchAllSavedRecipes() {
-  // Check first if the save file exists
-  // If it doesn't make a new, empty one.
-  if !FileManager.default.fileExists(atPath: saveDirectory.path) {
-    save()
-  }
-
-  do {
-    // Get the data from the save file
-    let data = try Data(contentsOf: saveDirectory)
-    let decoder = JSONDecoder()
-    // Decode the data into the recipe array
-    recipes = try decoder.decode([Recipe].self, from: data)
-  } catch {
-    // If something went wrong getting the data or decoding it,
-    // we'll get it here and print it.
-    print("Something went wrong fetching the saved recipes:", error)
-  }
+    // Check first if the save file exists
+    // If it doesn't make a new, empty one.
+    if !FileManager.default.fileExists(atPath: saveDirectory.path) {
+        save()
+    }
+    
+    do {
+        // Get the data from the save file
+        let data = try Data(contentsOf: saveDirectory)
+        let decoder = JSONDecoder()
+        // Decode the data into the recipe array
+        recipes = try decoder.decode([Recipe].self, from: data)
+    } catch {
+        // If something went wrong getting the data or decoding it,
+        // we'll get it here and print it.
+        print("Something went wrong fetching the saved recipes:", error)
+    }
 }
 ```
 
@@ -209,8 +209,8 @@ func getSavedRecipe(for id: String) -> Recipe? {
         // We've found the recipe, return it.
         return recipes[index]
     } else {
-        // This recipe doesn't exist, return nil
-    	  return nil
+		// This recipe doesn't exist, return nil
+        return nil
     }
 }
 ```
