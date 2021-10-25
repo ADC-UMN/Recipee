@@ -7,7 +7,7 @@
 
 import Foundation
 
-class Ingredient {
+class Ingredient: ObservableObject, Codable, Identifiable {
     init(name: String, amount: Int, amountType: AmountType) {
         self.name = name
         self.amount = amount

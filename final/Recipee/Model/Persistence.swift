@@ -87,6 +87,9 @@ class PersistenceController: ObservableObject {
         save()
     }
     
+    /// Gets a recipe if it exists and returns it.
+    /// - Parameter id: The ID of the recipe
+    /// - Returns: The recipe, if it exists, otherwise `nil`.
     func getSavedRecipe(for id: String) -> Recipe? {
         if let index = recipes.firstIndex(where: { recipe in
             recipe.id == id
