@@ -7,15 +7,6 @@
 
 import Foundation
 
-class Ingredient: ObservableObject, Codable, Identifiable {
-    init(name: String, amount: Int, amountType: AmountType) {
-        self.name = name
-        self.amount = amount
-        self.amountType = amountType
-    }
-    
-    var id: UUID = UUID()
-    var name: String
-    var amount: Int
-    var amountType: AmountType
+class Ingredient {
+
 }

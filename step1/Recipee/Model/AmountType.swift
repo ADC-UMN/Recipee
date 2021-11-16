@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum AmountType: String, CaseIterable, Codable, Equatable {
+enum AmountType: String, CaseIterable, Equatable {
     case cups = "Cups"
     case pints = "Pints"
     case quarts = "Quarts"

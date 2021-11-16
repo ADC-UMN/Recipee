@@ -65,24 +65,10 @@ extension Recipe {
     
     var image: UIImage? {
         get {
-            if id == "recipe1" || id == "recipe2" || id == "recipe3" || id == "recipe0" {
-                return UIImage(named: id)
-            }
-            
-            return UIImage(contentsOfFile: imageURL.path)
+            return nil
         }
         set {
-            if let data = newValue?.pngData() {
-                let fm = FileManager.default
-                let baseURL = fm.urls(for: .documentDirectory, in: .userDomainMask)[0]
-                let imageURL = baseURL.appendingPathComponent("\(id).png")
-                
-                do {
-                    try data.write(to: imageURL)
-                } catch {
-                    print(error)
-                }
-            }
+            
         }
     }
     
@@ -91,10 +77,7 @@ extension Recipe {
     /// This method will return immediately if the image file does not exist, and will
     /// not throw an error for that reason.
     func deleteImage() throws {
-        // Check if the image file exists
-        if FileManager.default.fileExists(atPath: imageURL.path) {
-            try FileManager.default.removeItem(at: imageURL)
-        }
+        
     }
     
 }
