@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import UIKit
 
 class Recipe: ObservableObject, Codable, Identifiable, Equatable {
     init(id: String = UUID().uuidString, createdAt: Date = Date(), name: String, notes: String, ingredients: [Ingredient]) {

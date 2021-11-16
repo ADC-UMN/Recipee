@@ -49,7 +49,7 @@ class PersistenceController: ObservableObject {
     /// - Parameter id: The ID of the recipe
     /// - Returns: The recipe, if it exists, otherwise `nil`.
     func getSavedRecipe(for id: String) -> Recipe? {
-        
+        return nil
     }
 }
 
