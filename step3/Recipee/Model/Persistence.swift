@@ -15,8 +15,7 @@ class PersistenceController: ObservableObject {
     // MARK: - Properties
     
     static let shared = PersistenceController()
-    
-    /// Observable array of saved recipes
+
     @Published var recipes: [Recipe] = []
     
     /// The file URL to save the recipes to
@@ -25,62 +24,72 @@ class PersistenceController: ObservableObject {
     // MARK: - Init
     
     init() {
-        
+        fetchAllSavedRecipes()
     }
     
     // MARK: - Methods
     
     /// Fetches all recipes from the `saveDirectory` file, and fills the `recipe` property with them.
     func fetchAllSavedRecipes() {
+        // Check first if the save file exists
+        // If it doesn't make a new, empty one.
         if !FileManager.default.fileExists(atPath: saveDirectory.path) {
-            recipes = []
             save()
         }
         
         do {
-            let jsonData = try Data(contentsOf: saveDirectory)
-            
+            // Get the data from the save file
+            let data = try Data(contentsOf: saveDirectory)
             let decoder = JSONDecoder()
-            recipes = try decoder.decode([Recipe].self, from: jsonData)
+            // Decode the data into the recipe array
+            recipes = try decoder.decode([Recipe].self, from: data)
         } catch {
-            print("Something went wrong getting the recipes: \(error)")
+            // If something went wrong getting the data or decoding it,
+            // we'll get it here and print it.
+            print("Something went wrong fetching the saved recipes:", error)
         }
     }
     
     /// Save the `recipes` array to the `saveDirectory` file.
     func save() {
-        let encoder = JSONEncoder()
         do {
+            let encoder = JSONEncoder()
+            // Encode the recipes to JSON data
             let data = try encoder.encode(recipes)
-            
+            // Save that data to disk
             try data.write(to: saveDirectory)
         } catch {
-            print("Something went wrong saving the recipes: \(error)")
+            // If something went wrong encoding the recipes to data,
+            // or if something went wrong saving the data to disk we'll have that error here.
+            print("Something went wrong saving the recipes:", error)
         }
     }
     
     /// Deletes the given recipe and saves the recipes to file.
     /// - Parameter r: The recipe to delete.
     func deleteRecipe(_ r: Recipe) {
-        if let index = recipes.firstIndex(of: r) {
+        // Find the index of the recipe in the `recipes` array.
+        if let index = recipes.firstIndex(where: { recipe in
+            recipe.id == r.id
+        }) {
+            // If we find it, remove it
             recipes.remove(at: index)
         }
         
+        // Try to delete the recipe's image to save storage space
         do {
             try r.deleteImage()
         } catch {
-            print(error)
+            print("Something went wrong deleting the recipe's image", error)
         }
         
+        // Save the recipes to disk.
         save()
     }
     
-    /// Gets a recipe if it exists and returns it.
-    /// - Parameter id: The ID of the recipe
-    /// - Returns: The recipe, if it exists, otherwise `nil`.
     func getSavedRecipe(for id: String) -> Recipe? {
         if let index = recipes.firstIndex(where: { recipe in
-            return recipe.id == id
+            recipe.id == id
         }) {
             return recipes[index]
         } else {
@@ -89,9 +98,7 @@ class PersistenceController: ObservableObject {
     }
 }
 
-
 // MARK: - Sample Data
-// Ignore the code below this line, we'll explain it later when we start building the UI.
 
 extension PersistenceController {
     

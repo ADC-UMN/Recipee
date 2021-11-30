@@ -9,16 +9,17 @@ import SwiftUI
 import CoreData
 
 struct ContentView: View {
+    @ObservedObject var persistenceController: PersistenceController = PersistenceController.shared
+
     var body: some View {
-        Text("Hello World!")
-            .onAppear {
-                print("Loaded the app...")
-            }
+        NavigationView {
+            
+        }
     }
 }
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        ContentView(persistenceController: PersistenceController.preview)
     }
 }
