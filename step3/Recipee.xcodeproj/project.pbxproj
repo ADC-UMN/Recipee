@@ -21,7 +21,7 @@
 		6C55D2862756AE0E0029FD07 /* RoundedCorner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C55D2832756AE0E0029FD07 /* RoundedCorner.swift */; };
 		6C55D2872756AE0E0029FD07 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C55D2842756AE0E0029FD07 /* ImagePicker.swift */; };
 		6C55D2882756AE0E0029FD07 /* VisualEffectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C55D2852756AE0E0029FD07 /* VisualEffectView.swift */; };
-		6C55D28A2756AE6D0029FD07 /* RecipeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C55D2892756AE6D0029FD07 /* RecipeCell.swift */; };
+		6C55D2C22756EAB20029FD07 /* RecipeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C55D2C12756EAB20029FD07 /* RecipeCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,7 +59,7 @@
 		6C55D2832756AE0E0029FD07 /* RoundedCorner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundedCorner.swift; sourceTree = "<group>"; };
 		6C55D2842756AE0E0029FD07 /* ImagePicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 		6C55D2852756AE0E0029FD07 /* VisualEffectView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VisualEffectView.swift; sourceTree = "<group>"; };
-		6C55D2892756AE6D0029FD07 /* RecipeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeCell.swift; sourceTree = "<group>"; };
+		6C55D2C12756EAB20029FD07 /* RecipeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -168,7 +168,7 @@
 			isa = PBXGroup;
 			children = (
 				6C377B1B2703BC4200C02F34 /* ContentView.swift */,
-				6C55D2892756AE6D0029FD07 /* RecipeCell.swift */,
+				6C55D2C12756EAB20029FD07 /* RecipeCell.swift */,
 			);
 			path = HomeView;
 			sourceTree = "<group>";
@@ -318,7 +318,7 @@
 				6C55D2882756AE0E0029FD07 /* VisualEffectView.swift in Sources */,
 				6C3E0D4E270D3F6500C514F7 /* Recipe.swift in Sources */,
 				6C377B1C2703BC4200C02F34 /* ContentView.swift in Sources */,
-				6C55D28A2756AE6D0029FD07 /* RecipeCell.swift in Sources */,
+				6C55D2C22756EAB20029FD07 /* RecipeCell.swift in Sources */,
 				6C3E0D4A270CF81800C514F7 /* AmountType.swift in Sources */,
 				6C55D2872756AE0E0029FD07 /* ImagePicker.swift in Sources */,
 				6C377B1A2703BC4200C02F34 /* RecipeeApp.swift in Sources */,

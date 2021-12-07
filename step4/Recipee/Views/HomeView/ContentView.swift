@@ -21,13 +21,8 @@ struct ContentView: View {
                         // ===============
                         // Recipe Cells
                         // ===============
-                        NavigationLink {
-                            RecipeDetailView(recipe: recipe)
-                                .ignoresSafeArea(.all, edges: .top)
-                        } label: {
-                            RecipeCell(recipe: recipe)
-                                .foregroundColor(Color(UIColor.label))
-                        }
+                        RecipeCell(recipe: recipe)
+                            .foregroundColor(Color(UIColor.label))
                         .contextMenu {
                             Button {
                                 persistenceController.deleteRecipe(recipe)
@@ -53,12 +48,6 @@ struct ContentView: View {
                         Label("Add", systemImage: "plus")
                     }
                 }
-            }
-            .sheet(isPresented: $showAddView) {
-                // Update the view for any new data after the add view is dismissed
-                persistenceController.objectWillChange.send()
-            } content: {
-                AddRecipeView()
             }
         }
     }

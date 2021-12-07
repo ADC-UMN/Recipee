@@ -13,7 +13,16 @@ struct ContentView: View {
 
     var body: some View {
         NavigationView {
-            
+            ScrollView {
+                VStack {
+                    ForEach(persistenceController.recipes) { recipe in
+                        RecipeCell(recipe: recipe)
+                            .cornerRadius(15)
+                            .padding()
+                            .clipped()
+                    }
+                }
+            }.navigationTitle("Recipee")
         }
     }
 }
